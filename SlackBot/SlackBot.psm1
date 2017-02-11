@@ -92,15 +92,18 @@ Function Invoke-SlackBot {
                     }
                 }
             }   
-        } Until (!$Conn)
+        } 
+        Until (!$Conn)
 
-    }Finally{
-
-        If ($WS) { 
+    }
+    Finally
+    {
+        If ($WS) 
+        { 
             Write-Verbose "Closing websocket"
             $WS.Dispose()
         }
-
     }
-
 }
+
+Export-ModuleMember -Function 'Invoke-SlackBot'
